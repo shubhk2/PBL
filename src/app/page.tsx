@@ -1,16 +1,14 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { Calendar } from "@/components/ui/calendar";
-import { useTheme } from "next-themes";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, Menu, X } from "lucide-react";
 
 export default function StudyBuddy() {
   const [search, setSearch] = useState("");
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -20,29 +18,60 @@ export default function StudyBuddy() {
 
   if (!mounted) return null; // Prevents hydration mismatch
 
-  const handleSearch = () => {
-    setIsDialogOpen(true);
-  };
-
   return (
-    <div className={`min-h-screen flex ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
-      {/* Left Sidebar */}
-      <aside className="w-64 h-screen bg-gray-800 text-white p-6 flex flex-col gap-6">
-        <h1 className="text-2xl font-bold">Study Buddy</h1>
-        <Button className="bg-blue-500 w-full">Create New Course</Button>
-        <Button className="bg-green-500 w-full">Profile</Button>
-        <Button className="bg-purple-500 w-full">Scheduled Quizzes</Button>
-      </aside>
+    <div className="min-h-screen flex transition-all bg-background text-foreground">
+      {/* Sidebar */}
+      {isSidebarOpen && (
+        <aside className="w-64 h-screen bg-gray-900 text-white p-6 flex flex-col gap-6 relative">
+          <h1 className="text-2xl font-bold">Study Buddy</h1>
+          <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg">
+            Create New Course
+          </Button>
+          <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg">
+            Scheduled Quizzes
+          </Button>
+          <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg">
+            Calendar
+          </Button>
+
+          {/* Profile Button at Bottom */}
+          <div className="mt-auto">
+            <Button className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-2 rounded-lg">
+              Profile
+            </Button>
+          </div>
+
+          {/* Sidebar Close Button */}
+          <button
+            className="absolute top-4 right-4 p-2 rounded-full bg-gray-700 hover:bg-gray-600"
+            onClick={() => setIsSidebarOpen(false)}
+          >
+            <X size={20} />
+          </button>
+        </aside>
+      )}
 
       {/* Main Content */}
-      <div className="flex-1 p-8">
-        {/* Theme Toggle */}
-        <button
-          className="absolute top-4 right-4 p-2 rounded-full bg-gray-700 hover:bg-gray-600 text-white"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        >
-          {theme === "dark" ? <Sun size={24} /> : <Moon size={24} />}
-        </button>
+      <div className="flex-1 p-8 transition-all">
+        {/* Top Buttons (Sidebar Toggle & Theme Toggle) */}
+        <div className="flex justify-between items-center mb-6">
+          {!isSidebarOpen && (
+            <button
+              className="p-2 rounded-full bg-gray-700 hover:bg-gray-600 text-white"
+              onClick={() => setIsSidebarOpen(true)}
+            >
+              <Menu size={24} />
+            </button>
+          )}
+
+          {/* Theme Toggle */}
+          <button
+            className="p-2 rounded-full bg-gray-700 hover:bg-gray-600 text-white"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          >
+            {theme === "dark" ? <Sun size={24} /> : <Moon size={24} />}
+          </button>
+        </div>
 
         {/* Search Bar */}
         <div className="text-center mb-6">
@@ -55,14 +84,14 @@ export default function StudyBuddy() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <Button className="bg-teal-500 text-white hover:bg-teal-700" onClick={handleSearch}>
+            <Button className="bg-teal-500 text-white hover:bg-teal-700">
               Search
             </Button>
           </div>
         </div>
 
         {/* Course Dashboard */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="w-[60%] mx-auto grid grid-cols-1 gap-6">
           <Card className="bg-gray-800 text-white p-4 rounded-xl shadow-lg">
             <CardContent>
               <h2 className="text-xl font-bold">Ongoing Courses</h2>
