@@ -1,0 +1,87 @@
+Index: src/app/page.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"use client\";\r\nimport { useState, useEffect } from \"react\";\r\nimport { useTheme } from \"next-themes\";\r\nimport { Input } from \"@/components/ui/input\";\r\nimport { Button } from \"@/components/ui/button\";\r\nimport { Card, CardContent } from \"@/components/ui/card\";\r\nimport { Moon, Sun, Menu, X } from \"lucide-react\";\r\nimport { useRouter } from \"next/navigation\";\r\n\r\nexport default function StudyBuddy() {\r\n  const [search, setSearch] = useState(\"\");\r\n  const [isSidebarOpen, setIsSidebarOpen] = useState(true);\r\n  const { theme, setTheme } = useTheme();\r\n  const [mounted, setMounted] = useState(false);\r\n  const router = useRouter();\r\n\r\n  useEffect(() => {\r\n    setMounted(true);\r\n  }, []);\r\n\r\n  if (!mounted) return null; // Prevents hydration mismatch\r\n\r\n  return (\r\n    <div className=\"min-h-screen flex transition-all bg-background text-foreground\">\r\n      {/* Sidebar */}\r\n      {isSidebarOpen && (\r\n        <aside className=\"w-64 h-screen bg-gray-900 text-white p-6 flex flex-col gap-6 relative\">\r\n          <h1 className=\"text-2xl font-bold\">Study Buddy</h1>\r\n          <Button className=\"w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg\">\r\n            Create New Course\r\n          </Button>\r\n          <Button className=\"w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg\" onClick={() => router.push(\"/scheduled-quizzes\")}>\r\n            Scheduled Quizzes\r\n          </Button>\r\n          <Button className=\"w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg\">\r\n            Calendar\r\n          </Button>\r\n\r\n          {/* Profile Button at Bottom */}\r\n          <div className=\"mt-auto\">\r\n            <Button className=\"w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-2 rounded-lg\">\r\n              Profile\r\n            </Button>\r\n          </div>\r\n\r\n          {/* Sidebar Close Button */}\r\n          <button\r\n            className=\"absolute top-4 right-4 p-2 rounded-full bg-gray-700 hover:bg-gray-600\"\r\n            onClick={() => setIsSidebarOpen(false)}\r\n          >\r\n            <X size={20} />\r\n          </button>\r\n        </aside>\r\n      )}\r\n\r\n      {/* Main Content */}\r\n      <div className=\"flex-1 p-8 transition-all\">\r\n        {/* Top Buttons (Sidebar Toggle & Theme Toggle) */}\r\n        <div className=\"flex justify-between items-center mb-6\">\r\n          {!isSidebarOpen && (\r\n            <button\r\n              className=\"p-2 rounded-full bg-gray-700 hover:bg-gray-600 text-white\"\r\n              onClick={() => setIsSidebarOpen(true)}\r\n            >\r\n              <Menu size={24} />\r\n            </button>\r\n          )}\r\n\r\n          {/* Theme Toggle */}\r\n          <button\r\n            className=\"p-2 rounded-full bg-gray-700 hover:bg-gray-600 text-white\"\r\n            onClick={() => setTheme(theme === \"dark\" ? \"light\" : \"dark\")}\r\n          >\r\n            {theme === \"dark\" ? <Sun size={24} /> : <Moon size={24} />}\r\n          </button>\r\n        </div>\r\n\r\n        {/* Search Bar */}\r\n        <div className=\"text-center mb-6\">\r\n          <h1 className=\"text-4xl font-bold\">Study Buddy</h1>\r\n          <div className=\"flex gap-2 justify-center mt-4\">\r\n            <Input\r\n              type=\"text\"\r\n              placeholder=\"Search for a course...\"\r\n              className=\"p-3 rounded-lg w-96 text-black\"\r\n              value={search}\r\n              onChange={(e) => setSearch(e.target.value)}\r\n            />\r\n            <Button className=\"bg-teal-500 text-white hover:bg-teal-700\">\r\n              Search\r\n            </Button>\r\n          </div>\r\n        </div>\r\n\r\n        {/* Course Dashboard */}\r\n        <div className=\"w-[60%] mx-auto grid grid-cols-1 gap-6\">\r\n          <Card className=\"bg-gray-800 text-white p-4 rounded-xl shadow-lg\">\r\n            <CardContent>\r\n              <h2 className=\"text-xl font-bold\">Ongoing Courses</h2>\r\n              <p>No active courses</p>\r\n            </CardContent>\r\n          </Card>\r\n\r\n          <Card className=\"bg-gray-800 text-white p-4 rounded-xl shadow-lg\">\r\n            <CardContent>\r\n              <h2 className=\"text-xl font-bold\">Recent Courses</h2>\r\n              <p>Explore your recent searches</p>\r\n            </CardContent>\r\n          </Card>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/page.tsx b/src/app/page.tsx
+--- a/src/app/page.tsx	(revision f6852c5644fccc108503ddbf881e6626718f9e1c)
++++ b/src/app/page.tsx	(date 1740466916129)
+@@ -1,4 +1,5 @@
+ "use client";
++
+ import { useState, useEffect } from "react";
+ import { useTheme } from "next-themes";
+ import { Input } from "@/components/ui/input";
+@@ -36,11 +37,14 @@
+             Calendar
+           </Button>
+ 
+-          {/* Profile Button at Bottom */}
+-          <div className="mt-auto">
+-            <Button className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-2 rounded-lg">
++          {/* Profile & Settings Buttons */}
++          <div className="mt-auto flex items-center gap-2">
++            <Button className="flex-1 bg-green-700 hover:bg-green-800 text-white font-semibold py-2 rounded-lg">
+               Profile
+             </Button>
++            <button className="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-700 hover:bg-gray-600 text-white">
++            ⚙️
++            </button>
+           </div>
+ 
+           {/* Sidebar Close Button */}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"10247d06-c376-4433-b969-13d2866a041b\" name=\"Changes\" comment=\"Multiple changes made.\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/next.config.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/next.config.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/globals.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/globals.css\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/layout.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/layout.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/page.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/page.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/ThemeProvider.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/ThemeProvider.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/tailwind.config.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/tailwind.config.ts\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\r\n  \"lastFilter\": {\r\n    \"state\": \"OPEN\",\r\n    \"assignee\": \"anurag04m\"\r\n  }\r\n}]]></component>\r\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\r\n  \"selectedUrlAndAccountId\": {\r\n    \"url\": \"https://github.com/shubhk2/PBL.git\",\r\n    \"accountId\": \"0892b698-fab7-478b-a8c3-56e6d3d5fde5\"\r\n  }\r\n}]]></component>\r\n  <component name=\"ProjectColorInfo\"><![CDATA[{\r\n  \"associatedIndex\": 0\r\n}]]></component>\r\n  <component name=\"ProjectId\" id=\"2tV5x0U2hBkn5OamuHO9CCaCxOs\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"settings.editor.selected.configurable\": \"org.jetbrains.plugins.github.ui.GithubSettingsConfigurable\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"F:\\GitHub\\PycharmProjects\\PBL\\src\\components\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-python-sdk-0e3be3396995-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.23339.19\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"10247d06-c376-4433-b969-13d2866a041b\" name=\"Changes\" comment=\"\" />\r\n      <created>1740424643998</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1740424643998</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Multiple changes made.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1740432360142</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1740432360142</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Multiple changes made.\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Multiple changes made.\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision f6852c5644fccc108503ddbf881e6626718f9e1c)
++++ b/.idea/workspace.xml	(date 1740465360599)
+@@ -4,14 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="10247d06-c376-4433-b969-13d2866a041b" name="Changes" comment="Multiple changes made.">
++    <list default="true" id="10247d06-c376-4433-b969-13d2866a041b" name="Changes" comment="Multiple changes made including quiz page.">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/ThemeProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ThemeProvider.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -78,7 +73,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1740432360142</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="Multiple changes made including quiz page.">
++      <option name="closed" value="true" />
++      <created>1740463488219</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1740463488219</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -94,6 +97,7 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Multiple changes made." />
+-    <option name="LAST_COMMIT_MESSAGE" value="Multiple changes made." />
++    <MESSAGE value="Multiple changes made including quiz page." />
++    <option name="LAST_COMMIT_MESSAGE" value="Multiple changes made including quiz page." />
+   </component>
+ </project>
+\ No newline at end of file
