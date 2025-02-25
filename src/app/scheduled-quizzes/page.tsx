@@ -32,14 +32,18 @@ export default function ScheduledQuizzes() {
 
       <div className="w-[60%] mx-auto grid grid-cols-1 gap-6">
         {sortedQuizzes.map((quiz, index) => (
-          <Card key={index} className="bg-gray-800 text-white p-4 rounded-xl shadow-lg">
-            <CardContent>
-              <h2 className="text-xl font-bold">{quiz.course} - {quiz.quiz}</h2>
-              <p>Date: {quiz.date}</p>
-              <p>Deadline: {quiz.deadline}</p>
-              <p>Status: {quiz.attempted ? "✅ Attempted" : "⏳ Pending"}</p>
-            </CardContent>
-          </Card>
+          <Card
+  key={index}
+  className="bg-gray-800 text-white p-4 rounded-xl shadow-lg hover:bg-gray-700 cursor-pointer transition-colors"
+  onClick={() => console.log(`${quiz.course} - ${quiz.quiz} clicked`)}
+>
+  <CardContent>
+    <h2 className="text-xl font-bold">{quiz.course} - {quiz.quiz}</h2>
+    <p>Date: {quiz.date}</p>
+    <p>Deadline: {quiz.deadline}</p>
+    <p>Status: {quiz.attempted ? "✅ Attempted" : "⏳ Pending"}</p>
+  </CardContent>
+</Card>
         ))}
       </div>
     </div>

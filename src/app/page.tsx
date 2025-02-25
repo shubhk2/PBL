@@ -98,19 +98,25 @@ export default function StudyBuddy() {
 
         {/* Course Dashboard */}
         <div className="w-[60%] mx-auto grid grid-cols-1 gap-6">
-          <Card className="bg-gray-800 text-white p-4 rounded-xl shadow-lg">
-            <CardContent>
-              <h2 className="text-xl font-bold">Ongoing Courses</h2>
-              <p>No active courses</p>
-            </CardContent>
-          </Card>
+         <Card
+  className="bg-gray-800 text-white p-4 rounded-xl shadow-lg hover:bg-gray-700 cursor-pointer transition-colors"
+  onClick={() => console.log("Ongoing Courses clicked")}
+>
+  <CardContent>
+    <h2 className="text-xl font-bold">Ongoing Courses</h2>
+    <p>No active courses</p>
+  </CardContent>
+</Card>
 
-          <Card className="bg-gray-800 text-white p-4 rounded-xl shadow-lg">
-            <CardContent>
-              <h2 className="text-xl font-bold">Recent Courses</h2>
-              <p>Explore your recent searches</p>
-            </CardContent>
-          </Card>
+<Card
+  className="bg-gray-800 text-white p-4 rounded-xl shadow-lg hover:bg-gray-700 cursor-pointer transition-colors"
+  onClick={() => console.log("Recent Courses clicked")}
+>
+  <CardContent>
+    <h2 className="text-xl font-bold">Recent Courses</h2>
+    <p>Explore your recent searches</p>
+  </CardContent>
+</Card>
         </div>
       </div>
     </div>
