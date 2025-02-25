@@ -1,5 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
+// import { useRouter } from "next/navigation";
+// import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -19,57 +21,62 @@ export default function StudyBuddy() {
   }, []);
 
   if (!mounted) return null; // Prevents hydration mismatch
+  console.log(router); // Should print an object, NOT undefined
 
   return (
+
     <div className="min-h-screen flex transition-all bg-background text-foreground">
       {/* Sidebar */}
       {isSidebarOpen && (
-        <aside className="w-64 h-screen bg-gray-900 text-white p-6 flex flex-col gap-6 relative">
-          <h1 className="text-2xl font-bold">Study Buddy</h1>
-          <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg">
-            Create New Course
-          </Button>
-          <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg" onClick={() => router.push("/scheduled-quizzes")}>
+          <aside className="w-64 h-screen bg-gray-900 text-white p-6 flex flex-col gap-6 relative">
+            <h1 className="text-2xl font-bold">Study Buddy</h1>
+
+            <Button
+                className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg"
+                onClick={() => router.push("/create-course")}  // ✅ Navigates to /create-course
+            >
+              Create New Course
+            </Button>
+
+            <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg" onClick={() => router.push("/scheduled-quizzes")}>
             Scheduled Quizzes
           </Button>
-          <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg">
-            Calendar
-          </Button>
 
-          {/* Profile Button at Bottom */}
-          <div className="mt-auto">
-            <Button className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-2 rounded-lg">
-              Profile
+            <Button
+                className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg"
+                onClick={() => router.push("/calendar")}
+            >
+              Calendar
             </Button>
-          </div>
 
-          {/* Sidebar Close Button */}
-          <button
-            className="absolute top-4 right-4 p-2 rounded-full bg-gray-700 hover:bg-gray-600"
-            onClick={() => setIsSidebarOpen(false)}
-          >
-            <X size={20} />
-          </button>
-        </aside>
+            <div className="mt-auto">
+              <Button
+                  className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-2 rounded-lg"
+                  onClick={() => router.push("/profile")}
+              >
+                Profile
+              </Button>
+            </div>
+
+          </aside>
       )}
-
       {/* Main Content */}
       <div className="flex-1 p-8 transition-all">
         {/* Top Buttons (Sidebar Toggle & Theme Toggle) */}
         <div className="flex justify-between items-center mb-6">
           {!isSidebarOpen && (
-            <button
-              className="p-2 rounded-full bg-gray-700 hover:bg-gray-600 text-white"
-              onClick={() => setIsSidebarOpen(true)}
-            >
-              <Menu size={24} />
-            </button>
+              <button
+                  className="p-2 rounded-full bg-gray-700 hover:bg-gray-600 text-white"
+                  onClick={() => setIsSidebarOpen(true)}
+              >
+                <Menu size={24}/>
+              </button>
           )}
 
           {/* Theme Toggle */}
           <button
-            className="p-2 rounded-full bg-gray-700 hover:bg-gray-600 text-white"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="p-2 rounded-full bg-gray-700 hover:bg-gray-600 text-white"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
             {theme === "dark" ? <Sun size={24} /> : <Moon size={24} />}
           </button>
@@ -94,19 +101,25 @@ export default function StudyBuddy() {
 
         {/* Course Dashboard */}
         <div className="w-[60%] mx-auto grid grid-cols-1 gap-6">
-          <Card className="bg-gray-800 text-white p-4 rounded-xl shadow-lg">
-            <CardContent>
-              <h2 className="text-xl font-bold">Ongoing Courses</h2>
-              <p>No active courses</p>
-            </CardContent>
-          </Card>
+          <Card
+  className="bg-gray-800 text-white p-4 rounded-xl shadow-lg hover:bg-gray-700 cursor-pointer transition-colors"
+  onClick={() => console.log("Ongoing Courses clicked")}
+>
+  <CardContent>
+    <h2 className="text-xl font-bold">Ongoing Courses</h2>
+    <p>No active courses</p>
+  </CardContent>
+</Card>
 
-          <Card className="bg-gray-800 text-white p-4 rounded-xl shadow-lg">
-            <CardContent>
-              <h2 className="text-xl font-bold">Recent Courses</h2>
-              <p>Explore your recent searches</p>
-            </CardContent>
-          </Card>
+<Card
+  className="bg-gray-800 text-white p-4 rounded-xl shadow-lg hover:bg-gray-700 cursor-pointer transition-colors"
+  onClick={() => console.log("Recent Courses clicked")}
+>
+  <CardContent>
+    <h2 className="text-xl font-bold">Recent Courses</h2>
+    <p>Explore your recent searches</p>
+  </CardContent>
+</Card>
         </div>
       </div>
     </div>
