@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import Logo from "@/components/logo";
+import Logo_main from "@/components/logo_main";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -16,7 +16,7 @@ export default function LoginPage() {
   return (
     <div className="flex h-screen justify-center items-center bg-background text-foreground">
       <div className="w-96 p-6 bg-gray-800 rounded-lg shadow-lg">
-        <Logo/>
+        <Logo_main/>
         <label className="block text-sm font-medium mb-1">Username</label>
         <input
           type="text"

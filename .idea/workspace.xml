@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10247d06-c376-4433-b969-13d2866a041b" name="Changes" comment="Minor Changes.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/create-course/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/create-course/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/customize-course/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/customize-course/page.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="10247d06-c376-4433-b969-13d2866a041b" name="Changes" comment="Minor Changes." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +94,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740480041049</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Minor Changes.">
+      <option name="closed" value="true" />
+      <created>1740481712878</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1740481712880</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
