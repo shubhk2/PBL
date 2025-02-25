@@ -7,6 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Logo from "@/components/logo";
+import Logo_main from "@/components/logo_main";
+
+
 
 export default function StudyBuddy() {
   const [search, setSearch] = useState("");
@@ -25,36 +29,41 @@ export default function StudyBuddy() {
     <div className="min-h-screen flex transition-all bg-background text-foreground">
       {/* Sidebar */}
       {isSidebarOpen && (
-        <aside className="w-64 h-screen bg-gray-900 text-white p-6 flex flex-col gap-6 relative">
-          <h1 className="text-2xl font-bold">Study Buddy</h1>
-          <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg" onClick={() => router.push("/create-course")}>
-            Create New Course
-          </Button>
-          <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg" onClick={() => router.push("/scheduled-quizzes")}>
-            Scheduled Quizzes
-          </Button>
-          <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg">
-            Calendar
-          </Button>
+          <aside className="w-64 h-screen bg-gray-900 text-white p-6 flex flex-col gap-6 relative">
+              <Logo/>
+              {/* Other sidebar items */}
 
-          {/* Profile & Settings Buttons */}
-          <div className="mt-auto flex items-center gap-2">
-            <Button className="flex-1 bg-green-700 hover:bg-green-800 text-white font-semibold py-2 rounded-lg">
-              Profile
+            <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg"
+                    onClick={() => router.push("/create-course")}>
+              Create New Course
             </Button>
-            <button className="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-700 hover:bg-gray-600 text-white">
-            ⚙️
-            </button>
-          </div>
+            <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg"
+                    onClick={() => router.push("/scheduled-quizzes")}>
+              Scheduled Quizzes
+            </Button>
+            <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg">
+              Calendar
+            </Button>
 
-          {/* Sidebar Close Button */}
-          <button
-            className="absolute top-4 right-4 p-2 rounded-full bg-gray-700 hover:bg-gray-600"
-            onClick={() => setIsSidebarOpen(false)}
-          >
-            <X size={20} />
-          </button>
-        </aside>
+            {/* Profile & Settings Buttons */}
+            <div className="mt-auto flex items-center gap-2">
+              <Button className="flex-1 bg-green-700 hover:bg-green-800 text-white font-semibold py-2 rounded-lg">
+                Profile
+              </Button>
+              <button
+                  className="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-700 hover:bg-gray-600 text-white">
+                ⚙️
+              </button>
+            </div>
+
+            {/* Sidebar Close Button */}
+            <button
+                className="absolute top-4 right-4 p-2 rounded-full bg-gray-700 hover:bg-gray-600"
+                onClick={() => setIsSidebarOpen(false)}
+            >
+              <X size={20}/>
+            </button>
+          </aside>
       )}
 
       {/* Main Content */}
@@ -81,7 +90,7 @@ export default function StudyBuddy() {
 
         {/* Search Bar */}
         <div className="text-center mb-6">
-          <h1 className="text-4xl font-bold">Study Buddy</h1>
+          <Logo_main/>
           <div className="flex gap-2 justify-center mt-4">
             <Input
               type="text"
