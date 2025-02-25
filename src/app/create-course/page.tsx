@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import Logo_left from "@/components/logo_left";
 
 export default function CreateCourse() {
   const [topic, setTopic] = useState("");
@@ -37,7 +38,8 @@ export default function CreateCourse() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-900 text-white p-4">
+    <div className="flex flex-col items-center justify-center h-screen bg-background text-white p-4">
+    <div className="w-120 p-6 bg-gray-800 rounded-lg shadow-lg">
       {!loading ? (
         <>
           <h1 className="text-3xl font-bold mb-4">Create a New Course</h1>
@@ -48,7 +50,10 @@ export default function CreateCourse() {
             placeholder="Enter topic..."
             className="w-80 p-2 text-black rounded-md"
           />
-          <Button onClick={handleSubmit} className="mt-4 bg-green-500 hover:bg-green-600 px-6 py-2 rounded-md">
+          <Button
+            onClick={handleSubmit}
+            className="mt-4 bg-green-500 hover:bg-green-600 px-6 py-2 rounded-md"
+          >
             Submit
           </Button>
         </>
@@ -59,6 +64,7 @@ export default function CreateCourse() {
           <div className="mt-4 w-12 h-12 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
         </div>
       )}
+    </div>
     </div>
   );
 }

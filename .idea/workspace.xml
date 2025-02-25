@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10247d06-c376-4433-b969-13d2866a041b" name="Changes" comment="Multiple changes made including login page.">
+    <list default="true" id="10247d06-c376-4433-b969-13d2866a041b" name="Changes" comment="Minor Changes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/scheduled-quizzes/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/scheduled-quizzes/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/create-course/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/create-course/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/customize-course/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/customize-course/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +90,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740467587904</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Minor Changes.">
+      <option name="closed" value="true" />
+      <created>1740480041049</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1740480041049</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,6 +116,7 @@
     <MESSAGE value="Multiple changes made." />
     <MESSAGE value="Multiple changes made including quiz page." />
     <MESSAGE value="Multiple changes made including login page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Multiple changes made including login page." />
+    <MESSAGE value="Minor Changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor Changes." />
   </component>
 </project>

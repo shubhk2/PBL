@@ -42,7 +42,8 @@ export default function CustomizeCourse() {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-900 text-white p-6">
+    <div className="flex flex-col items-center justify-center h-screen bg-background text-white p-6">
+    <div className="w-120 p-6 bg-gray-800 rounded-lg shadow-lg">
       <h1 className="text-3xl font-bold mb-4">Customize Your Course: {topic}</h1>
 
       <div className="w-96 space-y-4">
@@ -67,6 +68,7 @@ export default function CustomizeCourse() {
         </label>
 
         <Button className="w-full mt-4 bg-blue-500 hover:bg-blue-600">Start Course</Button>
+      </div>
       </div>
     </div>
   );
