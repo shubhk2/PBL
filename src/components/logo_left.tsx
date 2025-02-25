@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-export default function Logo() {
+export default function Logo_left() {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-left justify-left">
       <Image
         src="/logo.svg"
         alt="Study Buddy"

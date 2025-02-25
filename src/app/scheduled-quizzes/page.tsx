@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Logo_left from "@/components/logo_left";
 
 export default function ScheduledQuizzes() {
   const [sortBy, setSortBy] = useState<"name" | "date" | "deadline">("date");
@@ -22,6 +23,7 @@ export default function ScheduledQuizzes() {
 
   return (
     <div className="min-h-screen bg-background text-foreground p-8">
+      <Logo_left/>
       <h1 className="text-4xl font-bold mb-6 text-center">Scheduled Quizzes</h1>
 
       <div className="flex justify-center gap-4 mb-6">

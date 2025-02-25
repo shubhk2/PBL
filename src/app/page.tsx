@@ -9,8 +9,7 @@ import { Moon, Sun, Menu, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Logo from "@/components/logo";
 import Logo_main from "@/components/logo_main";
-
-
+import Logo_left from "@/components/logo_left";
 
 export default function StudyBuddy() {
   const [search, setSearch] = useState("");
