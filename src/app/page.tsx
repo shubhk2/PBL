@@ -46,7 +46,8 @@ export default function StudyBuddy() {
 
             {/* Profile & Settings Buttons */}
             <div className="mt-auto flex items-center gap-2">
-              <Button className="flex-1 bg-green-700 hover:bg-green-800 text-white font-semibold py-2 rounded-lg">
+              <Button className="flex-1 bg-teal-500 text-white hover:bg-teal-700 font-semibold py-2 rounded-lg"
+                onClick={() => router.push("/profile")}>
                 Profile
               </Button>
               <button
@@ -107,7 +108,7 @@ export default function StudyBuddy() {
         {/* Course Dashboard */}
         <div className="w-[60%] mx-auto grid grid-cols-1 gap-6">
          <Card
-  className="bg-gray-800 text-white p-4 rounded-xl shadow-lg hover:bg-gray-700 cursor-pointer transition-colors"
+  className="bg-purple-600 text-white p-4 rounded-xl shadow-lg hover:bg-purple-700 cursor-pointer transition-colors"
   onClick={() => console.log("Ongoing Courses clicked")}
 >
   <CardContent>
@@ -117,7 +118,7 @@ export default function StudyBuddy() {
 </Card>
 
 <Card
-  className="bg-gray-800 text-white p-4 rounded-xl shadow-lg hover:bg-gray-700 cursor-pointer transition-colors"
+  className="bg-purple-600 text-white p-4 rounded-xl shadow-lg hover:bg-purple-700 cursor-pointer transition-colors"
   onClick={() => console.log("Recent Courses clicked")}
 >
   <CardContent>
