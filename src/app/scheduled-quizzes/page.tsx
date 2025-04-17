@@ -36,7 +36,7 @@ export default function ScheduledQuizzes() {
         {sortedQuizzes.map((quiz, index) => (
           <Card
   key={index}
-  className="bg-gray-800 text-white p-4 rounded-xl shadow-lg hover:bg-gray-700 cursor-pointer transition-colors"
+  className="bg-purple-600 text-white p-4 rounded-xl shadow-lg hover:bg-purple-700 cursor-pointer transition-colors"
   onClick={() => console.log(`${quiz.course} - ${quiz.quiz} clicked`)}
 >
   <CardContent>

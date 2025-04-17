@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10247d06-c376-4433-b969-13d2866a041b" name="Changes" comment="Minor Changes.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_25_2025_12_34_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_25_2025_12_34_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_25_2025_2_45_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_25_2025_2_45_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="10247d06-c376-4433-b969-13d2866a041b" name="Changes" comment="Signup and Profile pages added and some minor changes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/create-course/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/create-course/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/customize-course/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/customize-course/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/scheduled-quizzes/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/scheduled-quizzes/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +116,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740483028087</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Signup and Profile pages added and some minor changes.">
+      <option name="closed" value="true" />
+      <created>1744804849500</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1744804849500</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,6 +143,7 @@
     <MESSAGE value="Multiple changes made including quiz page." />
     <MESSAGE value="Multiple changes made including login page." />
     <MESSAGE value="Minor Changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor Changes." />
+    <MESSAGE value="Signup and Profile pages added and some minor changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Signup and Profile pages added and some minor changes." />
   </component>
 </project>

@@ -46,7 +46,7 @@ export default function StudyBuddy() {
 
             {/* Profile & Settings Buttons */}
             <div className="mt-auto flex items-center gap-2">
-              <Button className="flex-1 bg-teal-500 text-white hover:bg-teal-700 font-semibold py-2 rounded-lg"
+              <Button className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg"
                 onClick={() => router.push("/profile")}>
                 Profile
               </Button>
@@ -99,7 +99,7 @@ export default function StudyBuddy() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <Button className="bg-teal-500 text-white hover:bg-teal-700">
+            <Button className="bg-blue-500 hover:bg-blue-600 text-white">
               Search
             </Button>
           </div>

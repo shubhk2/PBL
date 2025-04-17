@@ -50,9 +50,10 @@ export default function CreateCourse() {
             placeholder="Enter topic..."
             className="w-80 p-2 text-black rounded-md"
           />
+          <div className="mt-0"></div>
           <Button
             onClick={handleSubmit}
-            className="mt-4 bg-green-500 hover:bg-green-600 px-6 py-2 rounded-md"
+            className="w-full mt-4 bg-blue-500 hover:bg-blue-600"
           >
             Submit
           </Button>
