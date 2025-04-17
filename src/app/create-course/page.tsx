@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import Logo_left from "@/components/logo_left";
+// import Logo_left from "@/components/logo_left";
 
 export default function CreateCourse() {
   const [topic, setTopic] = useState("");
