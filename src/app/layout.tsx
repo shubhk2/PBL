@@ -1,35 +1,26 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { ReactNode } from "react";
-import ThemeProvider from "../components/ThemeProvider"; // ✅ Keeps ThemeProvider separate
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { AuthProvider } from '@/contexts/AuthContext';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ['latin'] });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-// ✅ Metadata remains in the server component
 export const metadata: Metadata = {
-  title: "Study Buddy",
-  description: "Your personal study assistant",
+  title: 'Study Buddy',
+  description: 'Your personal AI study assistant',
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased`}
-      >
-        {/* ✅ Using separate client-side ThemeProvider */}
-        <ThemeProvider>
+    <html lang="en">
+      <body className={inter.className}>
+        <AuthProvider>
           {children}
-        </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   );
